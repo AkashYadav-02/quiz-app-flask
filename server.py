@@ -5,20 +5,14 @@ from flask_wtf.csrf import CSRFError
 from flask import jsonify
 import os
 
+
 app = create_app(os.environ.get('FLASK_ENV','development'))
 
 from app.db import db, quiz
 
 @app.before_first_request 
 def seed_data():
-    """"
-    if there was no user with admin role, add new one
-    login with 
-        * username : admin
-        * password : admin1
-    
-    you can change the email, username, password in dashboard
-    """
+
     cek = db.users.find_one({})
     if not cek:
         

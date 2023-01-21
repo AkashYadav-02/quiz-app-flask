@@ -1,10 +1,12 @@
 from pymongo import MongoClient
-import os 
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
 class GeneralConfig:
     SECRET_KEY = os.urandom(12)
-    MONGODB_URI = os.environ.get('MONGODB_URI','mongodb+srv://root:admin@cluster0.ttuq6b0.mongodb.net/?retryWrites=true&w=majority')
+    MONGODB_URI = os.environ.get('MONGODB_URI')
 
 class DevelopmentConfig(GeneralConfig):
     DB_NAME = 'quiz_development'
