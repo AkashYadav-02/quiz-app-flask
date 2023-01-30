@@ -5,8 +5,8 @@
     <a href='#quizcollapse' aria-expanded="false" aria-controls="quizcollapse" data-toggle='collapse' href='#quizcollapse' role='button' class='item-menu'>Quizes</a>
     <div class='collapse' id='quizcollapse'>
         <a href='{{url_for("dashboard.add_quizes")}}' class='item-menu'>- Add Quizes</a>
-        <a href='{{url_for("dashboard.manage_quiz")}}' class='item-menu'>- Manage Quizes</a>
-        <a href='{{url_for("dashboard.users_scores")}}' class='item-menu'>- Users Scores</a>
+        <a href='{{url_for("dashboard.manage_quiz")}}' class='item-menu'>- Give Quizes</a>
+        <!--a href='{{url_for("dashboard.users_scores")}}' class='item-menu'>- Users Scores</a-->
         <a href='{{url_for("dashboard.scores")}}' class='item-menu'>- Your Scores</a>
     </div>
     {% if session.get('type') == 1 %}
