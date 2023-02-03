@@ -10,12 +10,12 @@ app = create_app(os.environ.get('FLASK_ENV','development'))
 
 from app.db import db, quiz
 
-@app.before_first_request 
+@app.before_first_request
 def seed_data():
 
     cek = db.users.find_one({})
     if not cek:
-        
+
         data = {}
 
         data['full_name'] = 'Admin Web'
@@ -28,10 +28,9 @@ def seed_data():
         insert_data = db.users.insert_one(data)
         if insert_data.inserted_id:
             app.logger.info('new user added')
-    
+
 @app.errorhandler(CSRFError)
 def error_csrf(e):
     return jsonify(status='fail', errors='CSRF Error, please refresh the page')
-
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
